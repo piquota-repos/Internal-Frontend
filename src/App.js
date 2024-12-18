@@ -9,7 +9,13 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/test")
+      .get("http://localhost:8080/api/test",
+        {
+          auth:{
+            username:"user1",
+            password:"user@123"
+          }}
+      )
       .then((response) => {
         setmessage(response.data)
         console.log(response.data)
