@@ -20,12 +20,12 @@ function LoginPage() {
                 setError('Please enter both username and password.');
                 return;
             }
+            console.log(username +"   "+ password)
 
-            const response = await axios.get('http://localhost:8080/api/test',{ 
-             auth:{
-                username: username, 
-                password:password
-            }});
+            const response = await axios.post('http://localhost:8080/api/login',{
+                username,
+                password
+            });
             console.log('Login successful:', response.data);
             console.log(username+ "   "+ password);
             setResponse(response.data);
