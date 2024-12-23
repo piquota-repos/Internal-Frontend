@@ -5,12 +5,15 @@ import {
     MDBInput,
     MDBBtn,
 } from 'mdb-react-ui-kit';
+import { useNavigate} from 'react-router-dom'; // Import useHistory hook
 
 function SignupPage() {
   const [username, setusername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
+  const [response,setResponse] = useState('');
+  const navigate = useNavigate();
   const handleSignup = async () => {
       try {
           // Check for empty fields
@@ -30,6 +33,8 @@ function SignupPage() {
         );
           // Handle successful signup
           console.log(response.data);
+          setResponse(response.data.body || response.data.message || 'Signup successful!');
+          navigate("/response", { state: { res: response.data.body || response.data.message || 'Signup successful!' } });
       } catch (error) {
           // Handle signup error
           console.error('Signup failed:', error.response ? error.response.data : error.message);
@@ -59,7 +64,7 @@ function SignupPage() {
                 <div className="text-center">
                     <p>Already Register? <a href="/">Login</a></p>
                 </div>
-
+                {response && <p>Response: {typeof response === 'string' ? response : JSON.stringify(response)}</p>}
             </MDBContainer>
         </div>
     </div>
