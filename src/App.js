@@ -6,7 +6,7 @@ import axios from "axios";
 import SignupPage from './componenets/SignupPage';
 import LoginPage from './componenets/LoginPage';
 import Response from './componenets/Response';
-
+import Showusers from './componenets/Showusers';
 function App() {
 
   const [message, setmessage] = useState("");
@@ -38,6 +38,7 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/response" element={<Response />} />
+          <Route path='/showusers' element={<Showusers/>}/>
         </Routes>
 
       </Router>

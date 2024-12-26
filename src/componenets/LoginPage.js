@@ -26,6 +26,7 @@ function LoginPage() {
                 username,
                 password
             });
+            localStorage.setItem('jwtItem',JSON.stringify(response.data));
             console.log('Login successful:', response.data);
             console.log(username+ "   "+ password);
             setResponse(response.data);
