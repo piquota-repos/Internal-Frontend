@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { use } from 'react';
+import { Link } from 'react-router-dom';
 import { data, useLocation } from 'react-router-dom';
 import {
     MDBContainer,
@@ -51,6 +52,11 @@ function Response(){
                 {response ? <p>Response from API: {response}</p> : <p>No response available.</p>}
                 <MDBContainer className="p-3">
                 <button className="mb-4 d-block btn-primary" style={{ height:'50px',width: '100%' }} onClick={showUsers}>Show Users</button>
+                <nav>
+                    <Link to="/about">
+                            Go to About
+                    </Link>
+                </nav>
                 </MDBContainer>
             </div>
         );
