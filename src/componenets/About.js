@@ -1,11 +1,24 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 function About() {
+
+  const userR = useSelector((state)=>state.users)
+  console.log(userR)
 
   return (
     <div className="About">
 
-        <p>
+{userR.flat().map((user) => (
+        <div key={user.id} style={{ border: "1px solid #ccc", margin: "10px", padding: "10px" }}>
+          <p><strong>ID:</strong> {user.id}</p>
+          <p><strong>Username:</strong> {user.username}</p>
+          <p><strong>Password:</strong>{user.password}</p>
+          <p><strong>Active:</strong> {user.active ? "Yes" : "No"}</p>
+        </div>
+      ))}
+
+        {/* <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi interdum non tortor quis luctus. Integer eleifend diam a arcu pellentesque molestie. Cras convallis augue at mattis semper. Nullam nec porta urna. Nullam aliquet, nunc ut auctor ultrices, leo eros feugiat sem, sed tincidunt turpis ante vitae leo. Nullam interdum neque nibh, et tincidunt dolor aliquam eget. Cras eu semper arcu, eu malesuada quam. Nunc viverra cursus congue. Praesent fringilla tempus feugiat. Sed enim ligula, varius ut elementum et, tempor eu quam. Aenean efficitur urna odio, at sollicitudin eros pulvinar id. Sed auctor eros eget accumsan dapibus. Fusce eu bibendum lorem. Proin consectetur auctor consectetur.
 
 Quisque vel lectus in nisl consectetur fermentum quis ut augue. Donec vel massa iaculis, accumsan augue sed, porttitor lorem. Sed accumsan enim vel diam pharetra euismod. Duis tempus posuere leo id molestie. Morbi ullamcorper, metus ac accumsan gravida, eros enim maximus urna, vitae blandit ipsum lacus id magna. Integer viverra dolor nec consectetur placerat. Suspendisse sit amet odio nisi. Donec sollicitudin risus scelerisque maximus imperdiet.
@@ -45,7 +58,7 @@ Phasellus ac fermentum diam, in iaculis justo. Sed non nisl eget risus placerat 
 Pellentesque et urna vel diam posuere fermentum. Nullam dictum ex ultrices arcu auctor tincidunt. Nulla orci justo, condimentum eget leo non, placerat facilisis dolor. Vestibulum sollicitudin diam ac pulvinar placerat. Duis suscipit tempor consequat. Pellentesque finibus suscipit augue a vulputate. Sed eleifend lacus eget nibh auctor, nec vehicula nulla vehicula. Etiam consequat nunc justo, interdum gravida metus tempor eget. Duis consequat, lacus eget dictum luctus, nunc dolor sagittis justo, sit amet sodales diam nunc at urna. Phasellus convallis mi non congue ullamcorper. Morbi dolor libero, gravida eget posuere et, facilisis ac purus. Pellentesque volutpat lacus in auctor placerat.
 
 Phasellus quam diam, tempor nec pulvinar vitae, dapibus a ipsum. Curabitur iaculis quam vel ex finibus, vulputate vestibulum nunc hendrerit. Sed ac ullamcorper metus. Duis ornare tempor leo, quis luctus quam hendrerit ac. Pellentesque bibendum erat nulla, non euismod ipsum consequat et. Cras id blandit massa, ut egestas lectus. Nullam aliquet ante a erat malesuada pretium. Duis euismod hendrerit dui vitae lacinia. Morbi pretium ligula sit amet nunc imperdiet, sit amet viverra purus rutrum. Vivamus lectus sem, scelerisque id tincidunt nec, laoreet dapibus sem. Phasellus posuere tortor risus, ac hendrerit urna vestibulum sed.
-        </p>
+        </p> */}
 
       
     </div>

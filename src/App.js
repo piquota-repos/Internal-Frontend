@@ -7,6 +7,8 @@ import SignupPage from './componenets/SignupPage';
 import LoginPage from './componenets/LoginPage';
 import Response from './componenets/Response';
 import Showusers from './componenets/Showusers';
+import { Provider } from 'react-redux';
+import { store } from './componenets/store';
 //import About from './componenets/About';
 
 const About = React.lazy(() => import('./componenets/About'));
@@ -34,6 +36,7 @@ function App() {
   // );
 
   return (
+    <Provider store={store}>
     <div className="App">
 
       <Router>
@@ -49,6 +52,7 @@ function App() {
       </Router>
       {/* <h1>{message}</h1> */}
     </div>
+    </Provider>
   );
 }
 

@@ -2,14 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { use } from 'react';
 import axios from "axios";
 import { useLocation } from 'react-router-dom';
+import { showUser as showUsersAction } from './userSlices';
+import { useDispatch } from 'react-redux';
 function Showusers(){
   
   const location= useLocation();
   const response = location.state?.res
+  const dispatch = useDispatch();
     
   if (!response || !Array.isArray(response)) {
     return <p>No data available</p>;
   }
+
+  dispatch(showUsersAction(response))
 
   return (
     <div>
